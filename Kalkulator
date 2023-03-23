@@ -7,15 +7,73 @@ while x== 0:
     check_dodawanie=answer.endswith("Dodawanie")
     if check_dodawanie==True:
         print("Dodawanie!")
-        print("Podaj liczbe wyrażeń jaka chcesz dodać:")
+        print("Ile liczb chcesz dodać?")
         quanity=int(input())
         i=0
         lista=[]
+        lista1=[]
         while i<quanity:
-            lista1=[]
             print("Podaj liczbę:")
-            digit=int(input())
-            lista[0]lista1.extend(digit)
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
             i+=1
-        print(f"Podane wartości to: {lista1[0]} {lista1[1]} {lista1[2]}")
-        print("Suma tych liczb wynosi "+int(lista1[0]+lista1[1]+lista1[2]))
+        x=len(lista)
+        b=0
+        zmienna=float(0)
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x:
+            zmienna+=lista[b]
+            b+=1
+        print("Suma tych liczb wynosi",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    check_odejmowanie=answer.endswith("Odejmowanie")
+    if check_odejmowanie==True:
+        print("Odejmowanie!")
+        print("Będziesz odejmował kolejne liczby od pierwszej jaką podasz!")
+        print("Ile liczb chcesz odjąć?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=float(0)+lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna-=lista[b]
+        print("Różnica tych liczb wynosi",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    check_mnozenie=answer.startswith("Mnożenie")
+    if check_mnozenie==True:
+        print("Mnożenie!")
+        print("Ile liczb chcesz pomnożyć?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna*=lista[b]
+        print("Po pomnożeniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
