@@ -77,3 +77,28 @@ while x== 0:
         print("Po pomnożeniu tych liczb otrzymujemy wartość",zmienna)
         yyy=input("Wybierz dowolny przycisk aby kontynuować...")
         x=0
+    check_dzielenie=answer.startswith("Dzielenie")
+    if check_dzielenie==True:
+        print("Dzielenie!")
+        print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
+        print("Ile liczb chcesz podzielić?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna/=lista[b]
+        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
