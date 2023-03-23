@@ -1,0 +1,21 @@
+x=0
+while x== 0:
+    print("Działania dostępne do wykonania:\n")
+    print("Dodawanie\nOdejmowanie\nMnożenie\nDzielenie\nReszta z dzielenia\nZaokrąglanie dzielenia do liczb całkowitych\nPotęgowanie\n")
+    print("Wpisz nazwę działania jakie chcesz wykonać:")
+    answer=input()
+    check_dodawanie=answer.endswith("Dodawanie")
+    if check_dodawanie==True:
+        print("Dodawanie!")
+        print("Podaj liczbe wyrażeń jaka chcesz dodać:")
+        quanity=int(input())
+        i=0
+        lista=[]
+        while i<quanity:
+            lista1=[]
+            print("Podaj liczbę:")
+            digit=int(input())
+            lista[0]lista1.extend(digit)
+            i+=1
+        print(f"Podane wartości to: {lista1[0]} {lista1[1]} {lista1[2]}")
+        print("Suma tych liczb wynosi "+int(lista1[0]+lista1[1]+lista1[2]))
