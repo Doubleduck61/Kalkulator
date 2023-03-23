@@ -5,7 +5,7 @@ while x== 0:
     print("Wpisz nazwę działania jakie chcesz wykonać:")
     answer=input()
     check_dodawanie=answer.endswith("Dodawanie")
-    if check_dodawanie==True:
+    if check_dodawanie == True or answer == "+":
         print("Dodawanie!")
         print("Ile liczb chcesz dodać?")
         quanity=int(input())
@@ -29,7 +29,7 @@ while x== 0:
         yyy=input("Wybierz dowolny przycisk aby kontynuować...")
         x=0
     check_odejmowanie=answer.endswith("Odejmowanie")
-    if check_odejmowanie==True:
+    if check_odejmowanie == True or answer == "-":
         print("Odejmowanie!")
         print("Będziesz odejmował kolejne liczby od pierwszej jaką podasz!")
         print("Ile liczb chcesz odjąć?")
@@ -54,7 +54,7 @@ while x== 0:
         yyy=input("Wybierz dowolny przycisk aby kontynuować...")
         x=0
     check_mnozenie=answer.startswith("Mnożenie")
-    if check_mnozenie==True:
+    if check_mnozenie == True or answer == "*":
         print("Mnożenie!")
         print("Ile liczb chcesz pomnożyć?")
         quanity=int(input())
@@ -78,7 +78,7 @@ while x== 0:
         yyy=input("Wybierz dowolny przycisk aby kontynuować...")
         x=0
     check_dzielenie=answer.startswith("Dzielenie")
-    if check_dzielenie==True:
+    if check_dzielenie == True or answer=="/":
         print("Dzielenie!")
         print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
         print("Ile liczb chcesz podzielić?")
@@ -100,5 +100,110 @@ while x== 0:
             b+=1
             zmienna/=lista[b]
         print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+        check_dzielenie=answer.startswith("Dzielenie")
+    if check_dzielenie == True or answer=="/":
+        print("Dzielenie!")
+        print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
+        print("Ile liczb chcesz podzielić?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna/=lista[b]
+        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    check_dzielenie_z_reszta=answer.startswith("Reszta")
+    if check_dzielenie_z_reszta == True or answer=="%":
+        print("Dzielenie z resztą!")
+        print("Pierwszą liczbę będziesz dzielił przez drugą, następnie otrzymasz resztę, np. 20/7 - 20-14(2 całe)otrzymamy 6")
+        print("Ile liczb chcesz podzielić?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna%=lista[b]
+        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    check_zaokraglanie_dzielenie_z_reszta=answer.startswith("Zaokrąglenie")
+    if check_zaokraglanie_dzielenie_z_reszta == True or answer=="//":
+        print("Zaokrąglanie dzielenia do liczb całkowitych!")
+        print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
+        print("Ile liczb chcesz podzielić?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna=zmienna//lista[b]
+        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    check_potegowanie=answer.startswith("Potęgowanie")
+    if check_potegowanie == True or answer=="**":
+        print("PotĘgowanie!")
+        print("Pierwszą liczbę jest podstawą, druga wykładnikiem. Jeżeli wybierzesz większa ilość liczb,\
+wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby która stanie się wykładnikiem.")
+        print("Ile liczb chcesz potęgować?")
+        quanity=int(input())
+        i=0
+        lista=[]
+        lista1=[]
+        while i<quanity:
+            print("Podaj liczbę:")
+            digit=float(input())
+            lista1=[digit]
+            lista.extend(lista1)
+            i+=1
+        x=len(lista)
+        b=0
+        zmienna=lista[b]
+        print("Podałeś",x,"wartości,",lista[b:])
+        while b<x-1:
+            b+=1
+            zmienna=zmienna**lista[b]
+        print("Po wykonaniu potęgi tych liczb otrzymujemy wartość",zmienna)
+        yyy=input("Wybierz dowolny przycisk aby kontynuować...")
+        x=0
+    else:
+        print("Nierozpoznana komenda, powrót do menu!")
         yyy=input("Wybierz dowolny przycisk aby kontynuować...")
         x=0
