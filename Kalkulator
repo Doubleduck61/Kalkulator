@@ -1,7 +1,8 @@
 x=0
 while x== 0:
     print("Działania dostępne do wykonania:\n")
-    print("Dodawanie\nOdejmowanie\nMnożenie\nDzielenie\nReszta z dzielenia\nZaokrąglanie dzielenia do liczb całkowitych\nPotęgowanie\n")
+    lista_dzialan=["Dodawanie","Odejmowanie","Mnożenie","Dzielenie","Reszta z dzielenia","Zaokrąglanie dzielenia do liczb całkowitych","Potęgowanie"]
+    print(f"{lista_dzialan[0]}\n{lista_dzialan[1]}\n{lista_dzialan[2]}\n{lista_dzialan[3]}\n{lista_dzialan[4]}\n{lista_dzialan[5]}\n{lista_dzialan[6]}\n")
     print("Wpisz nazwę działania jakie chcesz wykonać:")
     answer=input()
     check_dodawanie=answer.endswith("Dodawanie")
