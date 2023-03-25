@@ -1,34 +1,41 @@
 x=0
-while x== 0:
-    print("Działania dostępne do wykonania")
+while x == 0:
+    print("Działania dostępne do wykonania:")
     lista_dzialan=["Dodawanie","Odejmowanie","Mnożenie","Dzielenie","Reszta z dzielenia","Zaokrąglanie dzielenia do liczb całkowitych","Potęgowanie"]
     print(f"\n{lista_dzialan[0]}\n{lista_dzialan[1]}\n{lista_dzialan[2]}\n{lista_dzialan[3]}\n{lista_dzialan[4]}\n{lista_dzialan[5]}\n{lista_dzialan[6]}\n")
     print("Wpisz nazwę działania jakie chcesz wykonać:")
+#Dodawanie    
     answer=input()
     check_dodawanie=answer.endswith("Dodawanie")
     if check_dodawanie == True or answer == "+":
         print(f"{lista_dzialan[0]}!\n")
         print("Ile liczb chcesz dodać?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print("Podaj",i,"liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=float(0)
-        print("Podałeś",x,"następujących wartości,",lista[b:])
-        while b<x:
-            zmienna+=lista[b]
-            b+=1
-        print("Suma tych liczb wynosi",zmienna)
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do dodawania potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                lista1=[digit]
+                lista.extend(lista1)
+                i+=1
+            x=len(lista)
+            b=0
+            zmienna=float(0)
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x:
+                zmienna+=lista[b]
+                b+=1
+            print(f"Suma tych liczb wynosi{zmienna}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+#Odejmowanie
     check_odejmowanie=answer.endswith("Odejmowanie")
     if check_odejmowanie == True or answer == "-":
         print(f"{lista_dzialan[1]}!\n")
@@ -39,7 +46,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -47,13 +54,14 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=float(0)+lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna-=lista[b]
-        print("Różnica tych liczb wynosi",zmienna)
+        print(f"Suma tych liczb wynosi{zmienna}")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
+#mnożenie
     check_mnozenie=answer.startswith("Mnożenie")
     if check_mnozenie == True or answer == "*":
         print(f"{lista_dzialan[2]}!\n")
@@ -63,7 +71,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -71,13 +79,14 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna*=lista[b]
-        print("Po pomnożeniu tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po pomnożeniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrąglone do 3 liczb po przecinku")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
+#Dzielenie
     check_dzielenie=answer.startswith("Dzielenie")
     if check_dzielenie == True or answer=="/":
         print(f"{lista_dzialan[3]}!\n")
@@ -88,7 +97,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -96,11 +105,11 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna/=lista[b]
-        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
         check_dzielenie=answer.startswith("Dzielenie")
@@ -113,7 +122,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -121,13 +130,14 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna/=lista[b]
-        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
+#Reszta z dzielenia
     check_dzielenie_z_reszta=answer.startswith("Reszta")
     if check_dzielenie_z_reszta == True or answer=="%":
         print("Dzielenie z resztą!")
@@ -138,7 +148,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -146,13 +156,14 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna%=lista[b]
-        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.2f} zaokrągloną do 2 liczb po przecinku")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
+#Zaokrąglanie dzielenia z resztą
     check_zaokraglanie_dzielenie_z_reszta=answer.startswith("Zaokrąglenie")
     if check_zaokraglanie_dzielenie_z_reszta == True or answer=="//":
         print(f"{lista_dzialan[5]}!\n")
@@ -163,7 +174,7 @@ while x== 0:
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -171,25 +182,25 @@ while x== 0:
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna=zmienna//lista[b]
-        print("Po podzieleniu tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
+#Potęgowanie
     check_potegowanie=answer.startswith("Potęgowanie")
     if check_potegowanie == True or answer=="**":
         print(f"{lista_dzialan[6]}!\n")
-        print("Pierwszą liczbę jest podstawą, druga wykładnikiem. Jeżeli wybierzesz większa ilość liczb,\
-wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby która stanie się wykładnikiem.")
+        print("Pierwszą liczbę jest podstawą, druga wykładnikiem. Jeżeli wybierzesz więksąa ilość liczb, wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby która stanie się wykładnikiem.")
         print("Ile liczb chcesz potęgować?")
         quanity=int(input())
         i=0
         lista=[]
         lista1=[]
         while i<quanity:
-            print("Podaj",i,"liczbę:")
+            print(f"Podaj {i+1} liczbę:")
             digit=float(input())
             lista1=[digit]
             lista.extend(lista1)
@@ -197,11 +208,11 @@ wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby kt�
         x=len(lista)
         b=0
         zmienna=lista[b]
-        print("Podałeś",x,"następujących wartości",lista[b:])
+        print(f"Podałeś {x} następujących wartości {lista[b:]}")
         while b<x-1:
             b+=1
             zmienna=zmienna**lista[b]
-        print("Po wykonaniu potęgi tych liczb otrzymujemy wartość",zmienna)
+        print(f"Po wykonaniu potęgi tych liczb otrzymujemy wartość {zmienna:,}")
         yyy=input("Wybierz dowolny klawisz aby kontynuować...")
         x=0
     else:
