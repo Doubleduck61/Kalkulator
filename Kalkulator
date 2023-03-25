@@ -32,7 +32,17 @@ while x == 0:
             while b<x:
                 zmienna+=lista[b]
                 b+=1
-            print(f"Suma tych liczb wynosi{zmienna}")
+            print(f"Suma tych liczb wynosi {zmienna}")
+            if zmienna % 2:
+                print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
+                decyzja=input()
+                if decyzja == "T" or decyzja == "t":
+                    zaokraglenie=round(zmienna)
+                    print(f"Po zaokrągleniu liczba wynosi {zaokraglenie}")
+                elif decyzja == "N" or decyzja == "n":
+                    print(f"Liczba nie została zaokrąglona i wynosi {zmienna}")
+                else:
+                    print(f"Decyzja nierozpoznana, zaokrąglenie liczby nie zostało przeprowadzone. Twoja liczba to {zmienna}")
             yyy=input("Wybierz dowolny klawisz aby kontynuować...")
             x=0
 #Odejmowanie
@@ -42,25 +52,40 @@ while x == 0:
         print("Będziesz odejmował kolejne liczby od pierwszej jaką podasz!")
         print("Ile liczb chcesz odjąć?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=float(0)+lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna-=lista[b]
-        print(f"Suma tych liczb wynosi{zmienna}")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do odejmowania potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                lista1=[digit]
+                lista.extend(lista1)
+                i+=1
+            x=len(lista)
+            b=0
+            zmienna=float(0)+lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna-=lista[b]
+            print(f"Różnica tych liczb wynosi{zmienna}")
+            if zmienna % 2:
+                print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
+                decyzja=input()
+                if decyzja == "T" or decyzja == "t":
+                    zaokraglenie=round(zmienna)
+                    print(f"Po zaokrągleniu liczba wynosi {zaokraglenie}")
+                elif decyzja == "N" or decyzja == "n":
+                    print(f"Liczba nie została zaokrąglona i wynosi {zmienna}")
+                else:
+                    print(f"Decyzja nierozpoznana, zaokrąglenie liczby nie zostało przeprowadzone. Twoja liczba to {zmienna}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
 #mnożenie
     check_mnozenie=answer.startswith("Mnożenie")
     if check_mnozenie == True or answer == "*":
