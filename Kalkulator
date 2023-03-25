@@ -33,7 +33,8 @@ while x == 0:
                 zmienna+=lista[b]
                 b+=1
             print(f"Suma tych liczb wynosi {zmienna}")
-            if zmienna % 2:
+            b=zmienna.is_integer()
+            if b == False:
                 print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
                 decyzja=input()
                 if decyzja == "T" or decyzja == "t":
@@ -73,8 +74,9 @@ while x == 0:
             while b<x-1:
                 b+=1
                 zmienna-=lista[b]
-            print(f"Różnica tych liczb wynosi{zmienna}")
-            if zmienna % 2:
+            print(f"Różnica tych liczb wynosi {zmienna:.3f}")
+            b=zmienna.is_integer()
+            if b == False:
                 print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
                 decyzja=input()
                 if decyzja == "T" or decyzja == "t":
@@ -92,25 +94,43 @@ while x == 0:
         print(f"{lista_dzialan[2]}!\n")
         print("Ile liczb chcesz pomnożyć?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna*=lista[b]
-        print(f"Po pomnożeniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrąglone do 3 liczb po przecinku")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do mnożenia potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                if digit==0:
+                    print("Cokolwiek razy 0 daje zero - wynik na pewno będzie 0 :)")
+                lista1=[digit]
+                lista.extend(lista1)
+                i+=1
+            x=len(lista)
+            b=0
+            zmienna=lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna*=lista[b]
+            print(f"Po pomnożeniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrąglone do 3 liczb po przecinku")
+            b=zmienna.is_integer()
+            if b == False:
+                print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
+                decyzja=input()
+                if decyzja == "T" or decyzja == "t":
+                    zaokraglenie=round(zmienna)
+                    print(f"Po zaokrągleniu liczba wynosi {zaokraglenie}")
+                elif decyzja == "N" or decyzja == "n":
+                    print(f"Liczba nie została zaokrąglona i wynosi {zmienna:,.3f}")
+                else:
+                    print(f"Decyzja nierozpoznana, zaokrąglenie liczby nie zostało przeprowadzone. Twoja liczba to {zmienna:,.3f}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
 #Dzielenie
     check_dzielenie=answer.startswith("Dzielenie")
     if check_dzielenie == True or answer=="/":
@@ -118,50 +138,45 @@ while x == 0:
         print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
         print("Ile liczb chcesz podzielić?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna/=lista[b]
-        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
-        check_dzielenie=answer.startswith("Dzielenie")
-    if check_dzielenie == True or answer=="/":
-        print(f"{lista_dzialan[4]}!\n")
-        print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
-        print("Ile liczb chcesz podzielić?")
-        quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna/=lista[b]
-        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do podzielenia potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                if digit == 0 and i>=1:
+                    print("Nie można dzielić przez zero!")
+                    x=0
+                else:
+                    lista1=[digit]
+                    lista.extend(lista1)
+                    i+=1
+            x=len(lista)
+            b=0
+            zmienna=lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna/=lista[b]
+            print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
+            b=zmienna.is_integer()
+            if b == False:
+                print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
+                decyzja=input()
+                if decyzja == "T" or decyzja == "t":
+                    zaokraglenie=round(zmienna)
+                    print(f"Po zaokrągleniu liczba wynosi {zaokraglenie}")
+                elif decyzja == "N" or decyzja == "n":
+                    print(f"Liczba nie została zaokrąglona i wynosi {zmienna:,.3f}")
+                else:
+                    print(f"Decyzja nierozpoznana, zaokrąglenie liczby nie zostało przeprowadzone. Twoja liczba to {zmienna:.3f}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
 #Reszta z dzielenia
     check_dzielenie_z_reszta=answer.startswith("Reszta")
     if check_dzielenie_z_reszta == True or answer=="%":
@@ -169,25 +184,35 @@ while x == 0:
         print("Pierwszą liczbę będziesz dzielił przez drugą, następnie otrzymasz resztę, np. 20/7 - 20-14(2 całe)otrzymamy 6")
         print("Ile liczb chcesz podzielić?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna%=lista[b]
-        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.2f} zaokrągloną do 2 liczb po przecinku")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do mnożenia potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                if digit == 0 and i>=1:
+                    print("Nie można dzielić przez zero!")
+                    x=0
+                else:
+                    lista1=[digit]
+                    lista.extend(lista1)
+                    i+=1
+            x=len(lista)
+            b=0
+            zmienna=lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna%=lista[b]
+            zmienna=int(zmienna)
+            print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
 #Zaokrąglanie dzielenia z resztą
     check_zaokraglanie_dzielenie_z_reszta=answer.startswith("Zaokrąglenie")
     if check_zaokraglanie_dzielenie_z_reszta == True or answer=="//":
@@ -195,52 +220,76 @@ while x == 0:
         print("Pierwszą liczbę będziesz dzielił przez drugą, następnie wynik będzie dzielony przez trzecią itd..")
         print("Ile liczb chcesz podzielić?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna=zmienna//lista[b]
-        print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna:,.3f} zaokrągloną do 3 liczb po przecinku")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do mnożenia potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                if digit == 0 and i>=1:
+                    print("Nie można dzielić przez zero!")
+                    x=0
+                else:
+                    lista1=[digit]
+                    lista.extend(lista1)
+                    i+=1
+            x=len(lista)
+            b=0
+            zmienna=lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna=zmienna//lista[b]
+            zmienna=int(zmienna)
+            print(f"Po podzieleniu tych liczb otrzymujemy wartość {zmienna}")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
 #Potęgowanie
     check_potegowanie=answer.startswith("Potęgowanie")
     if check_potegowanie == True or answer=="**":
         print(f"{lista_dzialan[6]}!\n")
-        print("Pierwszą liczbę jest podstawą, druga wykładnikiem. Jeżeli wybierzesz więksąa ilość liczb, wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby która stanie się wykładnikiem.")
+        print("Pierwsza liczba jest podstawą, druga wykładnikiem. Jeżeli wybierzesz większą ilość liczb, wynik z potęgowania dwóch pierwszych będzie podstawą dla kolejnej liczby która stanie się wykładnikiem.")
         print("Ile liczb chcesz potęgować?")
         quanity=int(input())
-        i=0
-        lista=[]
-        lista1=[]
-        while i<quanity:
-            print(f"Podaj {i+1} liczbę:")
-            digit=float(input())
-            lista1=[digit]
-            lista.extend(lista1)
-            i+=1
-        x=len(lista)
-        b=0
-        zmienna=lista[b]
-        print(f"Podałeś {x} następujących wartości {lista[b:]}")
-        while b<x-1:
-            b+=1
-            zmienna=zmienna**lista[b]
-        print(f"Po wykonaniu potęgi tych liczb otrzymujemy wartość {zmienna:,}")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
-    else:
-        print("Nierozpoznana komenda, powrót do menu!")
-        yyy=input("Wybierz dowolny klawisz aby kontynuować...")
-        x=0
+        if quanity == 0 or quanity == 1:
+            print("Nie można wykonac danej operacji - do potęgowania potrzeba minimum 2 liczb!")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
+        else:
+            i=0
+            lista=[]
+            lista1=[]
+            while i<quanity:
+                print(f"Podaj {i+1} liczbę:")
+                digit=float(input())
+                if digit == 0:
+                    print("W tej chwili Twój wynik to 1 - cokolwiek wpiszesz w kolejnych potęgach, wynik zawsze będzie 1 :)")
+                lista1=[digit]
+                lista.extend(lista1)
+                i+=1
+            x=len(lista)
+            b=0
+            zmienna=lista[b]
+            print(f"Podałeś {x} następujących wartości {lista[b:]}")
+            while b<x-1:
+                b+=1
+                zmienna=zmienna**lista[b]
+            print(f"Po wykonaniu potęgi tych liczb otrzymujemy wartość {zmienna:,.3f} - jest ona zaokrąglona do 3 liczb po przecinku")
+            b=zmienna.is_integer()
+            if b == False:
+                print("Liczba nie jest całkowita! Czy chcesz ją zaokrąglić? [T/N]")
+                decyzja=input()
+                if decyzja == "T" or decyzja == "t":
+                    zaokraglenie=round(zmienna)
+                    print(f"Po zaokrągleniu liczba wynosi {zaokraglenie}")
+                elif decyzja == "N" or decyzja == "n":
+                    print(f"Liczba nie została zaokrąglona i wynosi {zmienna:,.3f} - jest ona zaokrąglona do 3 liczb po przecinku")
+                else:
+                    print(f"Decyzja nierozpoznana, zaokrąglenie liczby nie zostało przeprowadzone. Twoja liczba to {zmienna:,.3f} - jest ona zaokrąglona do 3 liczb po przecinku")
+            yyy=input("Wybierz dowolny klawisz aby kontynuować...")
+            x=0
