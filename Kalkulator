@@ -1,3 +1,5 @@
+#Przy chwili wolnego postaraj sie wprowadzić funkcje def, sum, można też wprowadzić listy i średnie
+
 x=0
 while x == 0:
     print("Działania dostępne do wykonania:\n")
