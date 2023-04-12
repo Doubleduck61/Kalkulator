@@ -1,0 +1,83 @@
+def end():
+    print("What's next'?\n")
+    print("Continue | ok")
+    print("Exit | x\n")
+    global loop1
+    global loop2
+    finish=input()
+    if finish.startswith("Continue") or finish=="ok":
+        loop1=0
+        loop2=0
+    elif finish.startswith("Exit") or finish=="x":
+        print("See you!")
+        yyy=input("Press buton to exit the program!")
+        loop1=1
+        loop2=0
+    else:
+        print("Wrong decision!")
+        print("Come back to chose operation!")
+        yyy=input("Press buton to continue...!")
+loop1=0
+while loop1==0:
+    loop2=0
+    num1=input("Enter first value:  ")
+    if num1.isdigit():
+        num1=float(num1)
+        loop2+=1
+        while loop2==1:
+            num2=input("Enter second value: ")
+            if num2.isdigit():
+                num2=float(num2)
+                loop2+=1
+            else:
+                print("Wrong enter data - it should be digit!")
+    else:
+        print("Wrong enter data - it should be digit!")
+    
+    while loop2==2:
+        
+        print(f"You choose {num1} and {num2} - now, you chose operation:\n")
+        print("You should write operation's name or symbol beside the name.")
+        print("| + | Additional\t|")
+        print("| - | Subtraction\t|")
+        print("| * | Multiplication\t|")
+        print("| / | Division\t\t|")
+        print("| ! | Change signs\t|")
+        print("| x | Exit\t\t|\n")
+        decision=input("What do you want to do? ")
+        if decision.endswith("Additional")==True or decision=="+":
+            print("Additional!\n")
+            answer=num1+num2
+            print(f"{num1} + {num2} = {answer:,.2f}")
+            end()
+        elif decision.endswith("Substraction")==True or decision=="-":
+            print("Subtraction!\n")
+            answer=num1-num2
+            print(f"{num1} - {num2} = {answer:,.2f}")
+            end()
+        elif decision.endswith("Multiplication")==True or decision=="*":
+            print("Multiplication!\n")
+            answer=num1*num2
+            print(f"{num1} * {num2} = {answer:,.3f}")
+            end()
+        elif decision.endswith("Division")==True or decision=="/":
+            print("Division!\n")
+            if num2==0:
+                print("You can't division by 0! Chose values again!")
+                loop2=1
+            else:
+                answer=num1/num2
+                print(f"{num1} / {num2} = {answer:,.3f}")
+                end()
+        elif decision.endswith("Exit")==True or decision=="x":
+            print("See you!")
+            yyy=input("Press buton to exit the program!")
+            loop1=1
+            break
+        elif decision.endswith("signs")==True or decision=="!":
+            print("Change your values!")
+            yyy=input("Press buton to continue...!")
+            loop2=0
+        else:
+            print("Wrong data!")
+            loop2=0
