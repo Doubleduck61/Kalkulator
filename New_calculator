@@ -1,3 +1,4 @@
+#zwiekszyc przejrzystość poprzez funkcje 
 def end():
     print("What's next'?\n")
     print("Continue | ok")
