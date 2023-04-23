@@ -1,3 +1,4 @@
+#get_number/os/pobranie isdigit
 import os
 
 dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to Meters (KtM)", "Kilometers to Centimeters (KtC)", "Kilometers to Milimeters (KtMi)"]
