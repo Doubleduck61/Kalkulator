@@ -1,0 +1,222 @@
+import os
+
+dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to Meters (KtM)", "Kilometers to Centimeters (KtC)", "Kilometers to Milimeters (KtMi)"]
+weight_change_unit_list=["Grams to Kilograms (GtK)", "Decaggrams to Kilograms (DtK)", "Kilograms to Decagrams (KtD)", "Kilograms to Grams (KtG)"]
+
+def MitK():
+    print(dist_change_unit_list[decision-1])
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(-6))
+    print(f"{value_unit} milimeters is {results1} Kilometers!")
+    yyy=input("Press button to continue...")
+
+def CtK():
+    print("Centymeters to kilometers!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(-5))
+    print(f"{value_unit} centymeters is {results1} Kilometers!")
+    yyy=input("Press button to continue...")
+    
+def MtK():
+    print("Meters to kilometers!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(-3))
+    print(f"{value_unit} meters is {results1} Kilometers!")
+    yyy=input("Press button to continue...")
+    
+def KtM():
+    print("Kilometers to meters!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(3))
+    print(f"{value_unit} Kilometers is {results1} meters!")
+    yyy=input("Press button to continue...")
+    
+def KtC():
+    print("Kilometers to centymeters!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(5))
+    print(f"{value_unit} Kilometers is {results1} centymeters!")
+    yyy=input("Press button to continue...")
+    
+def KtMi():
+    print("Kilometers to milimeters!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(6))
+    print(f"{value_unit} Kilometers is {results1} milimeters!")
+    yyy=input("Press button to continue...")
+    
+def GtK():
+    print("Gram to Kilogram!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(-3))
+    print(f"{value_unit} grams is {results1} kilograms!")
+    yyy=input("Press button to continue...")
+
+def DtK():
+    print("Decagram to Kilogram!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(-2))
+    print(f"{value_unit} decagram is {results1} kilograms!")
+    yyy=input("Press button to continue...")
+
+def KtD():
+    print("Kilogram to  Decagram!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(2))
+    print(f"{value_unit} kilograms is {results1} decagrams!")
+    yyy=input("Press button to continue...")
+
+def KtG():
+    print("Kilogram to gram!!")
+    value_unit=float(input("Enter your value: "))
+    results1=value_unit*(10**(3))
+    print(f"{value_unit} kilograms is {results1} grams!")
+    yyy=input("Press button to continue...")
+    
+def perform_calculation(num1, num2, operator):
+    if operator == "+":
+        return num1 + num2
+    elif operator == "-":
+        return num1 - num2
+    elif operator == "*":
+        return num1 * num2
+    elif operator == "/":
+        return num1 / num2
+    elif operator == "**":
+        return num1 ** num2
+    elif operator == "%":
+        return num1 % num2
+    else:
+        return "Invalid operator"
+
+def get_number(prompt):
+    while True:
+        num_str = input(prompt)
+        if num_str == "exit":
+            return num_str
+        if num_str.isdigit() or (num_str.startswith("-") and num_str[1:].isdigit()):
+            return float(num_str)
+        print("Invalid input. Please enter a number.")
+
+def get_operator():
+    while True:
+        operator = input("Enter operator (+,-,*,/,**,%): ")
+        if operator in ["+", "-", "*", "/","**","%"]:
+            return operator
+        if operator == "exit":
+            return operator
+        print("Invalid operator. Please enter +, -, *, /, ** or %.")
+
+def print_result(num1, num2, operator, result):
+    print("Result:", result)
+    input("Press Enter to continue...")
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def run_calculator():
+    num1 = get_number("Enter first number: ")
+    if num1 == "exit":
+        return False
+    num2 = get_number("Enter second number: ")
+    if num2 == "exit":
+        return False
+    operator = get_operator()
+    if operator == "exit":
+        return False
+    result = perform_calculation(num1, num2, operator)
+    print_result(num1, num2, operator, result)
+    return True
+
+def menu(digital):
+    print("You are going to change unit!")
+    print()
+    print("Length")
+        
+    a=0
+    for number in dist_change_unit_list:
+        print(a+1,dist_change_unit_list[a])
+        a+=1
+    print()
+    print("Weight")
+        
+    b=0
+    for numb in weight_change_unit_list:
+        print(b+7,dist_change_unit_list[b])
+        b+=1
+    print("To exit, type 'exit'.")
+    global decision
+    decision=input("Chose 1-10, or type 'exit' ")
+    if decision.isdigit():
+        decision=int(decision)
+        if decision == 1:
+            MitK()
+            exit()
+        elif decision == 2:
+            CtK()
+            exit()
+        elif decision == 3:
+            MtK()
+            exit()
+        elif decision == 4:
+            KtM()
+            exit()
+        elif decision == 5:
+            KtC()
+            exit()
+        elif decision == 6:
+            KtMi()
+            exit()
+        elif decision == 7:
+            GtK()
+            exit()
+        elif decision == 8:
+            DtK()
+            exit()
+        elif decision == 9:
+            KtD()
+            exit()
+        elif decision == 10:
+            KtG()
+            exit()
+    elif decision == "exit":
+            exit()
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("WRONG ENTER DATA!!!")
+        menu()
+    
+def exit():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    question=input("Do you want to go to calculator? [Y/N]")
+    if question == "Y" or question == "y":
+        return True
+    elif question == "N" or question == "n":
+        global ok
+        ok = False
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("WRONG ENTER DATA!!!")
+        exit()
+        
+def desc():
+    print("Welcome to the calculator.")
+    print("It supports addition, subtraction, multiplication, division, exponentiation and rest of the division")
+    print("It can change length unit and weight unit! Do you want to do that? [Y/N]")
+    digital=input()
+    if digital == "Y" or digital == "y":
+        menu(digital)
+    elif digital == "N" or digital == "n":
+        print("To exit, type 'exit'.")
+        print()
+        ok = run_calculator()
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("WRONG ENTER DATA!!!")
+        desc()
+    
+ok = True
+while ok:
+    desc()
+    if ok == True:
+        print("To exit, type 'exit'.")
+        print()
+        ok = run_calculator()
