@@ -1,75 +1,70 @@
-#get_number/os/pobranie isdigit
 import os
 
 dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to Meters (KtM)", "Kilometers to Centimeters (KtC)", "Kilometers to Milimeters (KtMi)"]
 weight_change_unit_list=["Grams to Kilograms (GtK)", "Decaggrams to Kilograms (DtK)", "Kilograms to Decagrams (KtD)", "Kilograms to Grams (KtG)"]
 
-def MitK():
+def name():
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(dist_change_unit_list[decision-1])
+    global value_unit
     value_unit=float(input("Enter your value: "))
+    
+def MitK():
+    name()
     results1=value_unit*(10**(-6))
     print(f"{value_unit} milimeters is {results1} Kilometers!")
     yyy=input("Press button to continue...")
 
 def CtK():
-    print("Centymeters to kilometers!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(-5))
     print(f"{value_unit} centymeters is {results1} Kilometers!")
     yyy=input("Press button to continue...")
     
 def MtK():
-    print("Meters to kilometers!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(-3))
     print(f"{value_unit} meters is {results1} Kilometers!")
     yyy=input("Press button to continue...")
     
 def KtM():
-    print("Kilometers to meters!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(3))
     print(f"{value_unit} Kilometers is {results1} meters!")
     yyy=input("Press button to continue...")
     
 def KtC():
-    print("Kilometers to centymeters!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(5))
     print(f"{value_unit} Kilometers is {results1} centymeters!")
     yyy=input("Press button to continue...")
     
 def KtMi():
-    print("Kilometers to milimeters!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(6))
     print(f"{value_unit} Kilometers is {results1} milimeters!")
     yyy=input("Press button to continue...")
     
 def GtK():
-    print("Gram to Kilogram!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(-3))
     print(f"{value_unit} grams is {results1} kilograms!")
     yyy=input("Press button to continue...")
 
 def DtK():
-    print("Decagram to Kilogram!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(-2))
     print(f"{value_unit} decagram is {results1} kilograms!")
     yyy=input("Press button to continue...")
 
 def KtD():
-    print("Kilogram to  Decagram!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(2))
     print(f"{value_unit} kilograms is {results1} decagrams!")
     yyy=input("Press button to continue...")
 
 def KtG():
-    print("Kilogram to gram!!")
-    value_unit=float(input("Enter your value: "))
+    name()
     results1=value_unit*(10**(3))
     print(f"{value_unit} kilograms is {results1} grams!")
     yyy=input("Press button to continue...")
