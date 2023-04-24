@@ -1,13 +1,21 @@
+#LEKCJA 43
+#Dopisz operacje: potęgowania, wyznaczania reszty z dzielenia
+#Dodaj mozliwość przeliczania jednostek miar (długości i ciężaru)
 import os
 
-dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to Meters (KtM)", "Kilometers to Centimeters (KtC)", "Kilometers to Milimeters (KtMi)"]
-weight_change_unit_list=["Grams to Kilograms (GtK)", "Decaggrams to Kilograms (DtK)", "Kilograms to Decagrams (KtD)", "Kilograms to Grams (KtG)"]
+dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to meters (KtM)", "Kilometers to centimeters (KtC)", "Kilometers to milimeters (KtMi)"]
+weight_change_unit_list=["Grams to kilograms (GtK)", "Decagrams to kilograms (DtK)", "Kilograms to decagrams (KtD)", "Kilograms to grams (KtG)"]
 
 def name():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print(dist_change_unit_list[decision-1])
     global value_unit
-    value_unit=float(input("Enter your value: "))
+    if decision > 0 and decision < 7:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(dist_change_unit_list[decision-1])
+        value_unit=float(input("Enter your value: "))
+    elif decision > 6:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(weight_change_unit_list[decision-7])
+        value_unit=float(input("Enter your value: "))
     
 def MitK():
     name()
@@ -136,7 +144,7 @@ def menu(digital):
         
     b=0
     for numb in weight_change_unit_list:
-        print(b+7,dist_change_unit_list[b])
+        print(b+7,weight_change_unit_list[b])
         b+=1
     print("To exit, type 'exit'.")
     global decision
@@ -178,7 +186,7 @@ def menu(digital):
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("WRONG ENTER DATA!!!")
-        menu()
+        menu(digital)
     
 def exit():
     os.system('cls' if os.name == 'nt' else 'clear')
