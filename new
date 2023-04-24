@@ -1,6 +1,7 @@
 #LEKCJA 43
 #Dopisz operacje: potęgowania, wyznaczania reszty z dzielenia
 #Dodaj mozliwość przeliczania jednostek miar (długości i ciężaru)
+
 import os
 
 dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to meters (KtM)", "Kilometers to centimeters (KtC)", "Kilometers to milimeters (KtMi)"]
@@ -21,61 +22,61 @@ def MitK():
     name()
     results1=value_unit*(10**(-6))
     print(f"{value_unit} milimeters is {results1} Kilometers!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
 
 def CtK():
     name()
     results1=value_unit*(10**(-5))
     print(f"{value_unit} centymeters is {results1} Kilometers!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def MtK():
     name()
     results1=value_unit*(10**(-3))
     print(f"{value_unit} meters is {results1} Kilometers!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def KtM():
     name()
     results1=value_unit*(10**(3))
     print(f"{value_unit} Kilometers is {results1} meters!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def KtC():
     name()
     results1=value_unit*(10**(5))
     print(f"{value_unit} Kilometers is {results1} centymeters!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def KtMi():
     name()
     results1=value_unit*(10**(6))
     print(f"{value_unit} Kilometers is {results1} milimeters!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def GtK():
     name()
     results1=value_unit*(10**(-3))
     print(f"{value_unit} grams is {results1} kilograms!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
 
 def DtK():
     name()
     results1=value_unit*(10**(-2))
     print(f"{value_unit} decagram is {results1} kilograms!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
 
 def KtD():
     name()
     results1=value_unit*(10**(2))
     print(f"{value_unit} kilograms is {results1} decagrams!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
 
 def KtG():
     name()
     results1=value_unit*(10**(3))
     print(f"{value_unit} kilograms is {results1} grams!")
-    yyy=input("Press button to continue...")
+    input("Press button to continue...")
     
 def perform_calculation(num1, num2, operator):
     if operator == "+":
@@ -85,6 +86,9 @@ def perform_calculation(num1, num2, operator):
     elif operator == "*":
         return num1 * num2
     elif operator == "/":
+        if num2 == 0:
+            print("You can't divide by zero!")
+            return False
         return num1 / num2
     elif operator == "**":
         return num1 ** num2
