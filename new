@@ -2,6 +2,7 @@
 #Dopisz operacje: potęgowania, wyznaczania reszty z dzielenia
 #Dodaj mozliwość przeliczania jednostek miar (długości i ciężaru)
 
+# przerobić jednostki na funkcję - po wyborze jednostki będzie to przypisywane do a, a w zależności od wyboru można temu przypisywać odpowiednią wartość 
 import os
 
 dist_change_unit_list=["Milimeters to kilometers (MitK)", "Centymeters to kilometers (CtK)", "Meters to kilometers (MtK)", "Kilometers to meters (KtM)", "Kilometers to centimeters (KtC)", "Kilometers to milimeters (KtMi)"]
